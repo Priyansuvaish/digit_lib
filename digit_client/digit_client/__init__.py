@@ -48,6 +48,7 @@ from .models.workflow import (
 )
 from .models.AuthorizationRequest import AuthorizationRequest, AuthorizationRequestBuilder, Role, RoleBuilder
 from .models.ActionRequest import ActionRequest, ActionBuilder, ActionRequestBuilder, Action
+from .models.businessServicesV2 import BusinessService, BusinessServiceBuilder, BusinessServiceSearchCriteria, BusinessServiceSearchCriteriaBuilder
 __all__ = [
     'APIClient',
     'Config',
@@ -104,4 +105,8 @@ __all__ = [
     'ProcessInstanceBuilder',
     'ProcessInstanceSearchCriteria',
     'ProcessInstanceSearchCriteriaBuilder',
+    'BusinessService',
+    'BusinessServiceBuilder',
+    'BusinessServiceSearchCriteria',
+    'BusinessServiceSearchCriteriaBuilder',
 ] 

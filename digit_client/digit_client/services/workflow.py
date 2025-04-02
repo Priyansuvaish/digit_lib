@@ -2,7 +2,7 @@ from typing import Dict, List, Optional, Any
 from ..api_client import APIClient
 from ..request_config import RequestConfig, RequestInfo
 from ..models.workflow import WorkflowAction, WorkflowActionBuilder, State, StateBuilder, ProcessInstance, ProcessInstanceBuilder, ProcessInstanceSearchCriteria, ProcessInstanceSearchCriteriaBuilder
-
+from ..models.businessServicesV2 import BusinessService, BusinessServiceSearchCriteria
 class WorkflowV2Service:
     def __init__(self, api_client: Optional[APIClient] = None):
         self.api_client = api_client or APIClient()
@@ -218,3 +218,83 @@ class WorkflowV2Service:
             json_data=payload,
             params=params
         )
+        
+    def create_business_service(self,
+                              business_services: List[BusinessService],
+                              request_info: Optional[RequestInfo] = None) -> Dict:
+        """
+        Create a new workflow business service configuration
+        
+        Args:
+            business_services: List of business service configurations
+            request_info: Authentication and request metadata
+            
+        Returns:
+            Dict: Created business service configurations
+        """
+        request_info = request_info or RequestConfig.get_request_info()
+        
+        payload = {
+            "RequestInfo": request_info.to_dict(),
+            "BusinessServices": [business_service.to_dict() for business_service in business_services]
+        }
+
+        endpoint = f"{self.url}/businessservice/_create"
+        return self.api_client.post(
+            endpoint,
+            json_data=payload
+        )
+    
+    def search_business_service(self,
+                              criteria: BusinessServiceSearchCriteria,
+                              request_info: Optional[RequestInfo] = None) -> Dict:
+        """
+        Search for workflow business service configurations
+        
+        Args:
+            criteria: Search criteria for business services
+            request_info: Authentication and request metadata
+            
+        Returns:
+            Dict: Matching business service configurations
+        """
+        request_info = request_info or RequestConfig.get_request_info()
+        
+        payload = {
+            "RequestInfo": request_info.to_dict(),
+        }
+        
+        # Convert criteria to query parameters
+        query_params = criteria.to_dict() 
+        endpoint = f"{self.url}/businessservice/_search"
+        return self.api_client.post(
+            endpoint,
+            json_data=payload,
+            params=query_params
+        )
+    
+    def update_business_service(self,
+                              business_services: List[BusinessService],
+                              request_info: Optional[RequestInfo] = None) -> Dict:
+        """
+        Update existing workflow business service configurations
+        
+        Args:
+            business_services: List of business service configurations with UUIDs
+            request_info: Authentication and request metadata
+            
+        Returns:
+            Dict: Updated business service configurations
+        """
+        request_info = request_info or RequestConfig.get_request_info()
+        
+        payload = {
+            "RequestInfo": request_info.to_dict(),
+            "BusinessServices": [business_service.to_dict() for business_service in business_services]
+        }
+
+        endpoint = f"{self.url}/businessservice/v2/_update"
+        return self.api_client.post(
+            endpoint,
+            json_data=payload
+        )     

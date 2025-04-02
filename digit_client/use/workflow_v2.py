@@ -6,7 +6,7 @@ from digit_client.models.workflow import (
     WorkflowActionBuilder
 )
 from digit_client.request_config import RequestConfig, RequestInfo
-from digit_client.models import Role, UserBuilder
+from digit_client.models import Role, UserBuilder, BusinessService, BusinessServiceBuilder, BusinessServiceSearchCriteria, BusinessServiceSearchCriteriaBuilder
 
 def example_workflow_transition():
     # Initialize the Workflow service
@@ -197,7 +197,70 @@ def example_auto_escalate():
     print("Auto Escalate Result:", result)
     return result
 
+def example_create_business_service():
+    # Initialize the Workflow service
+    workflow_service = WorkflowV2Service()
 
+    # Create business service
+    business_service = BusinessServiceBuilder()\
+        .with_tenant_id("LMN")\
+        .with_business_service("PT")\
+        .with_business("PT")\
+        .with_states([StateBuilder()\
+            .with_uuid("state-uuid")\
+            .with_state("APPROVED")\
+            .build()])\
+        .build()
+    
+        # Create business service
+    result = workflow_service.create_business_service(
+        business_services=[business_service]
+    )
+
+    print("Create Business Service Result:", result)
+    return result
+
+def example_search_business_service():
+    # Initialize the Workflow service
+    workflow_service = WorkflowV2Service()  
+
+    # Create search criteria
+    search_criteria = BusinessServiceSearchCriteriaBuilder()\
+        .with_tenant_id("LMN")\
+        .with_business_services(["PT"])\
+        .build()    
+     
+
+    # Search business service
+    result = workflow_service.search_business_service(
+        criteria=search_criteria
+    )       
+
+    print("Search Business Service Result:", result)
+    return result
+
+def example_update_business_service():
+    # Initialize the Workflow service
+    workflow_service = WorkflowV2Service()    
+
+    # Create business service
+    business_service = BusinessServiceBuilder()\
+        .with_tenant_id("LMN")\
+        .with_business_service("PT")\
+        .with_business("PT")\
+        .with_states([StateBuilder()\
+            .with_uuid("state-uuid")\
+            .with_state("APPROVED")\
+            .build()])\
+        .build() 
+
+    # Update business service
+    result = workflow_service.update_business_service(
+        business_services=[business_service]
+    )   
+
+    print("Update Business Service Result:", result)
+    return result
 
 if __name__ == "__main__":
     # Example 1: Transition workflow state
@@ -227,3 +290,15 @@ if __name__ == "__main__":
     # Example 7: Auto escalate
     print("\n=== Example 7: Auto Escalate ===")
     auto_escalate_result = example_auto_escalate()
+    
+    # Example 8: Create business service
+    print("\n=== Example 8: Create Business Service ===")
+    create_business_service_result = example_create_business_service()
+
+    # Example 9: Search business service
+    print("\n=== Example 9: Search Business Service ===")
+    search_business_service_result = example_search_business_service()
+    
+    # Example 10: Update business service
+    print("\n=== Example 10: Update Business Service ===")
+    update_business_service_result = example_update_business_service()
