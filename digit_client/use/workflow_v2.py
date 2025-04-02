@@ -197,6 +197,71 @@ def example_auto_escalate():
     print("Auto Escalate Result:", result)
     return result
 
+def example_create_business_serviceV2():
+    # Initialize the Workflow service
+    workflow_service = WorkflowV2Service()
+
+    # Create business service
+    business_service = BusinessServiceBuilder()\
+        .with_tenant_id("LMN")\
+        .with_business_service("PT")\
+        .with_business("PT")\
+        .with_states([StateBuilder()\
+            .with_uuid("state-uuid")\
+            .with_state("APPROVED")\
+            .build()])\
+        .build()
+    
+        # Create business service
+    result = workflow_service.create_business_serviceV2(
+        business_services=[business_service]
+    )
+
+    print("Create Business Service Result:", result)
+    return result
+
+def example_search_business_serviceV2():
+    # Initialize the Workflow service
+    workflow_service = WorkflowV2Service()  
+
+    # Create search criteria
+    search_criteria = BusinessServiceSearchCriteriaBuilder()\
+        .with_tenant_id("LMN")\
+        .with_business_services(["PT"])\
+        .build()    
+     
+
+    # Search business service
+    result = workflow_service.search_business_serviceV2(
+        criteria=search_criteria
+    )       
+
+    print("Search Business Service Result:", result)
+    return result
+
+def example_update_business_serviceV2():
+    # Initialize the Workflow service
+    workflow_service = WorkflowV2Service()    
+
+    # Create business service
+    business_service = BusinessServiceBuilder()\
+        .with_tenant_id("LMN")\
+        .with_business_service("PT")\
+        .with_business("PT")\
+        .with_states([StateBuilder()\
+            .with_uuid("state-uuid")\
+            .with_state("APPROVED")\
+            .build()])\
+        .build() 
+
+    # Update business service
+    result = workflow_service.update_business_serviceV2(
+        business_services=[business_service]
+    )   
+
+    print("Update Business Service Result:", result)
+    return result
+
 def example_create_business_service():
     # Initialize the Workflow service
     workflow_service = WorkflowV2Service()
@@ -262,6 +327,7 @@ def example_update_business_service():
     print("Update Business Service Result:", result)
     return result
 
+
 if __name__ == "__main__":
     # Example 1: Transition workflow state
     print("\n=== Example 1: Transition Workflow State ===")
@@ -292,13 +358,25 @@ if __name__ == "__main__":
     auto_escalate_result = example_auto_escalate()
     
     # Example 8: Create business service
-    print("\n=== Example 8: Create Business Service ===")
-    create_business_service_result = example_create_business_service()
+    print("\n=== Example 8: Create Business ServiceV2 ===")
+    create_business_service_result = example_create_business_serviceV2()
 
     # Example 9: Search business service
-    print("\n=== Example 9: Search Business Service ===")
-    search_business_service_result = example_search_business_service()
+    print("\n=== Example 9: Search Business ServiceV2 ===")
+    search_business_service_result = example_search_business_serviceV2()
     
     # Example 10: Update business service
-    print("\n=== Example 10: Update Business Service ===")
+    print("\n=== Example 10: Update Business ServiceV2===")
+    update_business_service_result = example_update_business_serviceV2()
+    
+    # Example 11: Create business service
+    print("\n=== Example 11: Create Business Service ===")
+    create_business_service_result = example_create_business_service()
+
+    # Example 12: Search business service
+    print("\n=== Example 12: Search Business Service ===")
+    search_business_service_result = example_search_business_service()
+    
+    # Example 13: Update business service
+    print("\n=== Example 13: Update Business Service ===")
     update_business_service_result = example_update_business_service()

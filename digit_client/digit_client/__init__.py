@@ -49,6 +49,7 @@ from .models.workflow import (
 from .models.AuthorizationRequest import AuthorizationRequest, AuthorizationRequestBuilder, Role, RoleBuilder
 from .models.ActionRequest import ActionRequest, ActionBuilder, ActionRequestBuilder, Action
 from .models.businessServicesV2 import BusinessService, BusinessServiceBuilder, BusinessServiceSearchCriteria, BusinessServiceSearchCriteriaBuilder
+from .models.filestore import FileUploadRequest, FileUploadRequestBuilder, FileRetrieveByIdRequest, FileRetrieveByIdRequestBuilder, FileRetrieveByTagRequest, FileRetrieveByTagRequestBuilder, FileRetrieveByUrlRequest, FileRetrieveByUrlRequestBuilder
 __all__ = [
     'APIClient',
     'Config',
@@ -109,4 +110,12 @@ __all__ = [
     'BusinessServiceBuilder',
     'BusinessServiceSearchCriteria',
     'BusinessServiceSearchCriteriaBuilder',
+    'FileUploadRequest',
+    'FileUploadRequestBuilder',
+    'FileRetrieveByIdRequest',
+    'FileRetrieveByIdRequestBuilder',
+    'FileRetrieveByTagRequest',
+    'FileRetrieveByTagRequestBuilder',
+    'FileRetrieveByUrlRequest',
+    'FileRetrieveByUrlRequestBuilder'
 ] 
