@@ -20,6 +20,7 @@ from .mdms_v2 import (
 from .workflow import Document, DocumentBuilder, WorkflowAction, WorkflowActionBuilder, State, StateBuilder, ProcessInstance, ProcessInstanceBuilder, ProcessInstanceSearchCriteria, ProcessInstanceSearchCriteriaBuilder
 from .businessServicesV2 import BusinessService, BusinessServiceBuilder, BusinessServiceSearchCriteria, BusinessServiceSearchCriteriaBuilder
 from .filestore import FileUploadRequest, FileUploadRequestBuilder, FileRetrieveByIdRequest, FileRetrieveByIdRequestBuilder, FileRetrieveByTagRequest, FileRetrieveByTagRequestBuilder, FileRetrieveByUrlRequest, FileRetrieveByUrlRequestBuilder
+from .idrequest import IdRequest, IdRequestBuilder
 
 __all__ = ['Role', 
            'RoleBuilder', 
@@ -72,4 +73,6 @@ __all__ = ['Role',
            'FileRetrieveByTagRequest',
            'FileRetrieveByTagRequestBuilder',
            'FileRetrieveByUrlRequest',
-           'FileRetrieveByUrlRequestBuilder']
+           'FileRetrieveByUrlRequestBuilder',
+           'IdRequest',
+           'IdRequestBuilder']

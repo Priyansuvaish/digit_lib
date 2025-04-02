@@ -50,6 +50,10 @@ from .models.AuthorizationRequest import AuthorizationRequest, AuthorizationRequ
 from .models.ActionRequest import ActionRequest, ActionBuilder, ActionRequestBuilder, Action
 from .models.businessServicesV2 import BusinessService, BusinessServiceBuilder, BusinessServiceSearchCriteria, BusinessServiceSearchCriteriaBuilder
 from .models.filestore import FileUploadRequest, FileUploadRequestBuilder, FileRetrieveByIdRequest, FileRetrieveByIdRequestBuilder, FileRetrieveByTagRequest, FileRetrieveByTagRequestBuilder, FileRetrieveByUrlRequest, FileRetrieveByUrlRequestBuilder
+
+from .models.idrequest import IdRequest, IdRequestBuilder
+
+
 __all__ = [
     'APIClient',
     'Config',
@@ -117,5 +121,6 @@ __all__ = [
     'FileRetrieveByTagRequest',
     'FileRetrieveByTagRequestBuilder',
     'FileRetrieveByUrlRequest',
-    'FileRetrieveByUrlRequestBuilder'
-] 
+    'FileRetrieveByUrlRequestBuilder',
+    'IdRequest',
+    'IdRequestBuilder'] 
