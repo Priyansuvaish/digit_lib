@@ -9,4 +9,5 @@ from .boundary import BoundaryService
 from .idrequest import IdRequestService
 from .Encrypts import EncryptsService   
 from .Transaction import TransactionService
-__all__ = ['AuthenticationService', 'UserService', 'MDMSService', 'MDMSV2Service', 'AuthorizeService', 'WorkflowV2Service', 'BoundaryService', 'IdRequestService', 'EncryptsService', 'TransactionService']
+from .ShortenRequest import ShortenRequestService
+__all__ = ['AuthenticationService', 'UserService', 'MDMSService', 'MDMSV2Service', 'AuthorizeService', 'WorkflowV2Service', 'BoundaryService', 'IdRequestService', 'EncryptsService', 'TransactionService', 'ShortenRequestService']

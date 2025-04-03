@@ -24,7 +24,7 @@ from .idrequest import IdRequest, IdRequestBuilder
 from .boundary import BoundarySearchRequest, BoundarySearchRequestBuilder,LocationBoundarySearchRequest,LocationBoundarySearchRequestBuilder
 from .Encrypts import EncReqObject, EncReqObjectBuilder, SignRequest, SignRequestBuilder, VerifyRequest, VerifyRequestBuilder, RotateKeyRequest, RotateKeyRequestBuilder,Signature
 from .Transactions import Transaction, TransactionBuilder, TransactionCriteria,TransactionCriteriaBuilder, TxnStatusEnum, TaxAndPayment, TaxAndPaymentBuilder
-
+from .ShortenRequest import ShortenRequest, ShortenRequestBuilder
 __all__ = ['Role', 
            'RoleBuilder', 
            'AuthorizationRequest', 
@@ -98,5 +98,7 @@ __all__ = ['Role',
            'TransactionCriteriaBuilder',
            'TxnStatusEnum',
            'TaxAndPayment',
-           'TaxAndPaymentBuilder'
+           'TaxAndPaymentBuilder',
+           'ShortenRequest',
+           'ShortenRequestBuilder'
            ]

@@ -6,7 +6,7 @@ __version__ = "0.1.0"
 
 from .api_client import APIClient
 from .config import Config
-from .services import AuthenticationService, UserService, MDMSService, MDMSV2Service, AuthorizeService, WorkflowV2Service, BoundaryService, IdRequestService, EncryptsService, TransactionService
+from .services import AuthenticationService, UserService, MDMSService, MDMSV2Service, AuthorizeService, WorkflowV2Service, BoundaryService, IdRequestService, EncryptsService, TransactionService, ShortenRequestService    
 from .request_config import RequestConfig, RequestInfo, RequestInfoBuilder
 from .models.citizen_user import CitizenUser, Role, CitizenUserBuilder
 from .models.search_models import UserSearchModel, UserSearchModelBuilder
@@ -55,6 +55,7 @@ from .models.idrequest import IdRequest, IdRequestBuilder
 from .models.boundary import BoundarySearchRequest, BoundarySearchRequestBuilder,LocationBoundarySearchRequest,LocationBoundarySearchRequestBuilder
 from .models.Encrypts import EncReqObject, EncReqObjectBuilder, SignRequest, SignRequestBuilder, VerifyRequest, VerifyRequestBuilder, RotateKeyRequest, RotateKeyRequestBuilder,Signature
 from .models.Transactions import Transaction, TransactionBuilder, TransactionCriteria,TransactionCriteriaBuilder, TxnStatusEnum, TaxAndPayment, TaxAndPaymentBuilder
+from .models.ShortenRequest import ShortenRequest, ShortenRequestBuilder
 
 __all__ = [
     'APIClient',
@@ -68,6 +69,8 @@ __all__ = [
     'BoundaryService',
     'IdRequestService',
     'EncryptsService',
+    'TransactionService',
+    'ShortenRequestService',
     'RequestConfig',
     'RequestInfo',
     'RequestInfoBuilder',
@@ -148,5 +151,7 @@ __all__ = [
     'TransactionCriteriaBuilder',
     'TxnStatusEnum',
     'TaxAndPayment',
-    'TaxAndPaymentBuilder'
+    'TaxAndPaymentBuilder',
+    'ShortenRequest',
+    'ShortenRequestBuilder'
 ] 
