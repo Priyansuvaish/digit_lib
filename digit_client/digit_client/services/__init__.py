@@ -7,4 +7,5 @@ from .authorize import AuthorizeService
 from .workflow import WorkflowV2Service
 from .boundary import BoundaryService
 from .idrequest import IdRequestService
-__all__ = ['AuthenticationService', 'UserService', 'MDMSService', 'MDMSV2Service', 'AuthorizeService', 'WorkflowV2Service', 'BoundaryService', 'IdRequestService']
+from .Encrypts import EncryptsService
+__all__ = ['AuthenticationService', 'UserService', 'MDMSService', 'MDMSV2Service', 'AuthorizeService', 'WorkflowV2Service', 'BoundaryService', 'IdRequestService', 'EncryptsService']
