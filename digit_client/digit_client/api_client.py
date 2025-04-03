@@ -46,14 +46,36 @@ class APIClient:
         if additional_headers:
             headers.update(additional_headers)
             
-        response = requests.post(
-            f"{self.base_url}/{endpoint}", 
-            headers=headers,
-            json=json_data if json_data is not None else None,
-            data=data if data is not None else None,
-            params=params if params is not None else None,
-            files=files if files is not None else None
-        )
-        return response.json()
+        try:
+            response = requests.post(
+                f"{self.base_url}/{endpoint}", 
+                headers=headers,
+                json=json_data if json_data is not None else None,
+                data=data if data is not None else None,
+                params=params if params is not None else None,
+                files=files if files is not None else None
+            )
+            
+            # Print debug information
+            print(f"Request URL: {response.url}")
+            print(f"Request Headers: {headers}")
+            print(f"Request Body: {json_data}")
+            print(f"Response Status: {response.status_code}")
+            print(f"Response Headers: {response.headers}")
+            print(f"Response Text: {response.text[:1000]}")  # Print first 1000 chars of response
+            
+            response.raise_for_status()  # Raise an exception for bad status codes
+            
+            return response.json()
+        except requests.exceptions.RequestException as e:
+            print(f"Request failed: {str(e)}")
+            if hasattr(e, 'response') and e.response is not None:
+                print(f"Response status code: {e.response.status_code}")
+                print(f"Response text: {e.response.text}")
+            raise
+        except ValueError as e:
+            print(f"Failed to parse JSON response: {str(e)}")
+            print(f"Raw response: {response.text}")
+            raise
 
     # Add more HTTP methods as needed

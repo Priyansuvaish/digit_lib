@@ -18,28 +18,38 @@ from .AuthorizationRequest import Role
 
 @dataclass
 class User:
-    id: int
-    uuid: str
-    user_name: str
-    name: str
-    mobile_number: str
-    email_id: str
-    type: str
-    roles: List[Role]
-    tenant_id: str
+    id: Optional[int] = None
+    uuid: Optional[str] = None
+    user_name: Optional[str] = None
+    name: Optional[str] = None
+    mobile_number: Optional[str] = None
+    email_id: Optional[str] = None
+    type: Optional[str] = None
+    roles: Optional[List[Role]] = None
+    tenant_id: Optional[str] = None
 
     def to_dict(self) -> dict:
-        return {
-            "id": self.id,
-            "uuid": self.uuid,
-            "userName": self.user_name,
-            "name": self.name,
-            "mobileNumber": self.mobile_number,
-            "emailId": self.email_id,
-            "type": self.type,
-            "roles": [role.to_dict() for role in self.roles],
-            "tenantId": self.tenant_id  
-        }
+        result = {}
+        if self.id is not None:
+            result["id"] = self.id
+        if self.uuid is not None:
+            result["uuid"] = self.uuid
+        if self.user_name is not None:
+            result["userName"] = self.user_name
+        if self.name is not None:
+            result["name"] = self.name
+        if self.mobile_number is not None:
+            result["mobileNumber"] = self.mobile_number
+        if self.email_id is not None:
+            result["emailId"] = self.email_id
+        if self.type is not None:
+            result["type"] = self.type
+        if self.roles is not None:
+            result["roles"] = [role.to_dict() for role in self.roles]
+        if self.tenant_id is not None:
+            result["tenantId"] = self.tenant_id
+            
+        return result
 
 class UserBuilder:
     """Builder class for creating UserProfileUpdate objects"""

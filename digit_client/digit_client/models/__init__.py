@@ -23,6 +23,7 @@ from .filestore import FileUploadRequest, FileUploadRequestBuilder, FileRetrieve
 from .idrequest import IdRequest, IdRequestBuilder
 from .boundary import BoundarySearchRequest, BoundarySearchRequestBuilder,LocationBoundarySearchRequest,LocationBoundarySearchRequestBuilder
 from .Encrypts import EncReqObject, EncReqObjectBuilder, SignRequest, SignRequestBuilder, VerifyRequest, VerifyRequestBuilder, RotateKeyRequest, RotateKeyRequestBuilder,Signature
+from .Transactions import Transaction, TransactionBuilder, TransactionCriteria,TransactionCriteriaBuilder, TxnStatusEnum, TaxAndPayment, TaxAndPaymentBuilder
 
 __all__ = ['Role', 
            'RoleBuilder', 
@@ -90,5 +91,12 @@ __all__ = ['Role',
            'VerifyRequestBuilder',
            'RotateKeyRequest',
            'RotateKeyRequestBuilder',
-           'Signature'
+           'Signature',
+           'Transaction',
+           'TransactionBuilder',
+           'TransactionCriteria',
+           'TransactionCriteriaBuilder',
+           'TxnStatusEnum',
+           'TaxAndPayment',
+           'TaxAndPaymentBuilder'
            ]
