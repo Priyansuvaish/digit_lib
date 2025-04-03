@@ -21,6 +21,7 @@ from .workflow import Document, DocumentBuilder, WorkflowAction, WorkflowActionB
 from .businessServicesV2 import BusinessService, BusinessServiceBuilder, BusinessServiceSearchCriteria, BusinessServiceSearchCriteriaBuilder
 from .filestore import FileUploadRequest, FileUploadRequestBuilder, FileRetrieveByIdRequest, FileRetrieveByIdRequestBuilder, FileRetrieveByTagRequest, FileRetrieveByTagRequestBuilder, FileRetrieveByUrlRequest, FileRetrieveByUrlRequestBuilder
 from .idrequest import IdRequest, IdRequestBuilder
+from .boundary import BoundarySearchRequest, BoundarySearchRequestBuilder,LocationBoundarySearchRequest,LocationBoundarySearchRequestBuilder
 
 __all__ = ['Role', 
            'RoleBuilder', 
@@ -75,4 +76,8 @@ __all__ = ['Role',
            'FileRetrieveByUrlRequest',
            'FileRetrieveByUrlRequestBuilder',
            'IdRequest',
-           'IdRequestBuilder']
+           'IdRequestBuilder',
+           'BoundarySearchRequest',
+           'BoundarySearchRequestBuilder',
+           'LocationBoundarySearchRequest',
+           'LocationBoundarySearchRequestBuilder']

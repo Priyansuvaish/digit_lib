@@ -5,4 +5,6 @@ from .master_data_v1 import MDMSService
 from .mdms_v2 import MDMSV2Service
 from .authorize import AuthorizeService
 from .workflow import WorkflowV2Service
-__all__ = ['AuthenticationService', 'UserService', 'MDMSService', 'MDMSV2Service', 'AuthorizeService', 'WorkflowV2Service']
+from .boundary import BoundaryService
+from .idrequest import IdRequestService
+__all__ = ['AuthenticationService', 'UserService', 'MDMSService', 'MDMSV2Service', 'AuthorizeService', 'WorkflowV2Service', 'BoundaryService', 'IdRequestService']

@@ -6,7 +6,7 @@ __version__ = "0.1.0"
 
 from .api_client import APIClient
 from .config import Config
-from .services import AuthenticationService, UserService, MDMSService, MDMSV2Service, AuthorizeService, WorkflowV2Service
+from .services import AuthenticationService, UserService, MDMSService, MDMSV2Service, AuthorizeService, WorkflowV2Service, BoundaryService, IdRequestService
 from .request_config import RequestConfig, RequestInfo, RequestInfoBuilder
 from .models.citizen_user import CitizenUser, Role, CitizenUserBuilder
 from .models.search_models import UserSearchModel, UserSearchModelBuilder
@@ -52,7 +52,7 @@ from .models.businessServicesV2 import BusinessService, BusinessServiceBuilder, 
 from .models.filestore import FileUploadRequest, FileUploadRequestBuilder, FileRetrieveByIdRequest, FileRetrieveByIdRequestBuilder, FileRetrieveByTagRequest, FileRetrieveByTagRequestBuilder, FileRetrieveByUrlRequest, FileRetrieveByUrlRequestBuilder
 
 from .models.idrequest import IdRequest, IdRequestBuilder
-
+from .models.boundary import BoundarySearchRequest, BoundarySearchRequestBuilder,LocationBoundarySearchRequest,LocationBoundarySearchRequestBuilder
 
 __all__ = [
     'APIClient',
@@ -63,6 +63,8 @@ __all__ = [
     'MDMSV2Service',
     'AuthorizeService',
     'WorkflowV2Service',
+    'BoundaryService',
+    'IdRequestService',
     'RequestConfig',
     'RequestInfo',
     'RequestInfoBuilder',
@@ -123,4 +125,9 @@ __all__ = [
     'FileRetrieveByUrlRequest',
     'FileRetrieveByUrlRequestBuilder',
     'IdRequest',
-    'IdRequestBuilder'] 
+    'IdRequestBuilder',
+    'BoundarySearchRequest',
+    'BoundarySearchRequestBuilder',
+    'LocationBoundarySearchRequest',
+    'LocationBoundarySearchRequestBuilder'
+] 
