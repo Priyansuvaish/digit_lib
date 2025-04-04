@@ -10,5 +10,6 @@ from .idrequest import IdRequestService
 from .Encrypts import EncryptsService   
 from .Transaction import TransactionService     
 from .ShortenRequest import ShortenRequestService
-from .Indexer import IndexerService
-__all__ = ['AuthenticationService', 'UserService', 'MDMSService', 'MDMSV2Service', 'AuthorizeService', 'WorkflowV2Service', 'BoundaryService', 'IdRequestService', 'EncryptsService', 'TransactionService', 'ShortenRequestService', 'IndexerService']
+from .Indexer import IndexerService 
+from .Report import ReportService
+__all__ = ['AuthenticationService', 'UserService', 'MDMSService', 'MDMSV2Service', 'AuthorizeService', 'WorkflowV2Service', 'BoundaryService', 'IdRequestService', 'EncryptsService', 'TransactionService', 'ShortenRequestService', 'IndexerService', 'ReportService']

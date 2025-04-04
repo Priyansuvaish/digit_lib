@@ -26,7 +26,7 @@ from .Encrypts import EncReqObject, EncReqObjectBuilder, SignRequest, SignReques
 from .Transactions import Transaction, TransactionBuilder, TransactionCriteria,TransactionCriteriaBuilder, TxnStatusEnum, TaxAndPayment, TaxAndPaymentBuilder
 from .ShortenRequest import ShortenRequest, ShortenRequestBuilder
 from .Indexer import ReindexRequest, ReindexRequestBuilder, LegacyIndexRequest, LegacyIndexRequestBuilder, APIDetails, APIDetailsBuilder, PaginationDetails, PaginationDetailsBuilder   
-
+from .Report import MetadataRequest, MetadataRequestBuilder, ReportRequest, ReportRequestBuilder, SearchParam, SearchParamBuilder
 __all__ = ['Role', 
            'RoleBuilder', 
            'AuthorizationRequest', 
@@ -110,5 +110,11 @@ __all__ = ['Role',
            'APIDetails',
            'APIDetailsBuilder',
            'PaginationDetails',
-           'PaginationDetailsBuilder'
+           'PaginationDetailsBuilder',
+           'MetadataRequest',
+           'MetadataRequestBuilder',
+           'ReportRequest',
+           'ReportRequestBuilder',
+           'SearchParam',
+           'SearchParamBuilder'
            ]
