@@ -25,6 +25,8 @@ from .boundary import BoundarySearchRequest, BoundarySearchRequestBuilder,Locati
 from .Encrypts import EncReqObject, EncReqObjectBuilder, SignRequest, SignRequestBuilder, VerifyRequest, VerifyRequestBuilder, RotateKeyRequest, RotateKeyRequestBuilder,Signature
 from .Transactions import Transaction, TransactionBuilder, TransactionCriteria,TransactionCriteriaBuilder, TxnStatusEnum, TaxAndPayment, TaxAndPaymentBuilder
 from .ShortenRequest import ShortenRequest, ShortenRequestBuilder
+from .Indexer import ReindexRequest, ReindexRequestBuilder, LegacyIndexRequest, LegacyIndexRequestBuilder, APIDetails, APIDetailsBuilder, PaginationDetails, PaginationDetailsBuilder   
+
 __all__ = ['Role', 
            'RoleBuilder', 
            'AuthorizationRequest', 
@@ -100,5 +102,13 @@ __all__ = ['Role',
            'TaxAndPayment',
            'TaxAndPaymentBuilder',
            'ShortenRequest',
-           'ShortenRequestBuilder'
+           'ShortenRequestBuilder',
+           'ReindexRequest',
+           'ReindexRequestBuilder',
+           'LegacyIndexRequest',
+           'LegacyIndexRequestBuilder',
+           'APIDetails',
+           'APIDetailsBuilder',
+           'PaginationDetails',
+           'PaginationDetailsBuilder'
            ]
