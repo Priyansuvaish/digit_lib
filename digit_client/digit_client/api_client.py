@@ -17,17 +17,26 @@ class APIClient:
             require_auth (bool, optional): Whether authentication is required
             
         Returns:
-            Union[dict, bytes]: Response JSON or raw bytes if streaming
+            Union[dict, str]: Response JSON, text, or raw bytes if streaming
         """
         headers = {}
         if require_auth and self.auth_token:
             headers['Authorization'] = f'Bearer {self.auth_token}'
             
-        response = requests.get(f"{self.base_url}/{endpoint}", headers=headers, params=params, stream=stream)
+        response = requests.get(f"{self.base_url}/{endpoint}", headers=headers, params=params, stream=stream, allow_redirects=False)
         
         if stream:
             return response.content
-        return response.json()
+            
+        # Handle redirects
+        if response.status_code in (301, 302, 303, 307, 308):
+            return response.headers.get('Location', '')
+            
+        # Try to parse as JSON, fallback to text
+        try:
+            return response.json()
+        except ValueError:
+            return response.text
 
     def post(self, endpoint, json_data=None, data=None, additional_headers=None, params=None, files=None, require_auth=True):
         """
@@ -43,7 +52,7 @@ class APIClient:
             require_auth (bool, optional): Whether authentication is required
             
         Returns:
-            dict: Response JSON
+            Union[dict, str]: Response JSON or text
         """
         headers = {}
         if json_data is not None:
@@ -61,6 +70,11 @@ class APIClient:
             params=params if params is not None else None,
             files=files if files is not None else None
         )
-        return response.json()
+        
+        # Try to parse as JSON, fallback to text
+        try:
+            return response.json()
+        except ValueError:
+            return response.text
 
     # Add more HTTP methods as needed
