@@ -59,7 +59,7 @@ from .models.ShortenRequest import ShortenRequest, ShortenRequestBuilder
 from .models.Indexer import ReindexRequest, ReindexRequestBuilder, LegacyIndexRequest, LegacyIndexRequestBuilder, APIDetails, APIDetailsBuilder, PaginationDetails, PaginationDetailsBuilder
 from .models.Report import MetadataRequest, MetadataRequestBuilder, ReportRequest, ReportRequestBuilder, SearchParam, SearchParamBuilder
 from .models.Otp import Otp, OtpBuilder, UserOtp, UserOtpBuilder
-
+from .models.localization import Message, MessageBuilder, UpdateMessage, UpdateMessageBuilder, DeleteMessage, DeleteMessagesRequest, DeleteMessagesRequestBuilder, DeleteMessageBuilder, LocaleRequest, LocaleRequestBuilder, CreateMessagesRequest, CreateMessagesRequestBuilder, UpdateMessageRequest, UpdateMessageRequestBuilder
 __all__ = [
     'APIClient',
     'Config',
@@ -178,5 +178,19 @@ __all__ = [
     'Otp',
     'OtpBuilder',
     'UserOtp',
-    'UserOtpBuilder'
+    'UserOtpBuilder',
+    'Message',
+    'MessageBuilder',
+    'UpdateMessage',
+    'UpdateMessageBuilder',
+    'DeleteMessage',
+    'DeleteMessagesRequest',
+    'DeleteMessagesRequestBuilder',
+    'DeleteMessageBuilder',
+    'LocaleRequest',
+    'LocaleRequestBuilder',
+    'CreateMessagesRequest',
+    'CreateMessagesRequestBuilder',
+    'UpdateMessageRequest',
+    'UpdateMessageRequestBuilder'
 ] 

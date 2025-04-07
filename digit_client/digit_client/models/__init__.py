@@ -28,6 +28,7 @@ from .ShortenRequest import ShortenRequest, ShortenRequestBuilder
 from .Indexer import ReindexRequest, ReindexRequestBuilder, LegacyIndexRequest, LegacyIndexRequestBuilder, APIDetails, APIDetailsBuilder, PaginationDetails, PaginationDetailsBuilder   
 from .Report import MetadataRequest, MetadataRequestBuilder, ReportRequest, ReportRequestBuilder, SearchParam, SearchParamBuilder
 from .Otp import Otp, OtpBuilder, UserOtp, UserOtpBuilder
+from .localization import Message, MessageBuilder, UpdateMessage, UpdateMessageBuilder, DeleteMessage, DeleteMessagesRequest, DeleteMessagesRequestBuilder, DeleteMessageBuilder, LocaleRequest, LocaleRequestBuilder, CreateMessagesRequest, CreateMessagesRequestBuilder, UpdateMessageRequest, UpdateMessageRequestBuilder
 __all__ = ['Role', 
            'RoleBuilder', 
            'AuthorizationRequest', 
@@ -121,5 +122,19 @@ __all__ = ['Role',
            'Otp',
            'OtpBuilder',
            'UserOtp',
-           'UserOtpBuilder'
+           'UserOtpBuilder',
+           'Message',
+           'MessageBuilder',
+           'UpdateMessage',
+           'UpdateMessageBuilder',
+           'DeleteMessage',
+           'DeleteMessageBuilder',
+           'DeleteMessagesRequest',
+           'DeleteMessagesRequestBuilder',
+           'LocaleRequest',
+           'LocaleRequestBuilder',
+           'CreateMessagesRequest',
+           'CreateMessagesRequestBuilder',
+           'UpdateMessageRequest',
+           'UpdateMessageRequestBuilder'
            ]
