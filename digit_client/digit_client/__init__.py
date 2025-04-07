@@ -6,7 +6,7 @@ __version__ = "0.1.0"
 
 from .api_client import APIClient
 from .config import Config
-from .services import AuthenticationService, UserService, MDMSService, MDMSV2Service, AuthorizeService, WorkflowV2Service, BoundaryService, IdRequestService, EncryptsService, TransactionService, ShortenRequestService, IndexerService, ReportService    
+from .services import AuthenticationService, UserService, MDMSService, MDMSV2Service, AuthorizeService, WorkflowV2Service, BoundaryService, IdRequestService, EncryptsService, TransactionService, ShortenRequestService, IndexerService, ReportService, UserOtpService, EgovOtpService    
 from .request_config import RequestConfig, RequestInfo, RequestInfoBuilder
 from .models.citizen_user import CitizenUser, Role, CitizenUserBuilder
 from .models.search_models import UserSearchModel, UserSearchModelBuilder
@@ -58,6 +58,8 @@ from .models.Transactions import Transaction, TransactionBuilder, TransactionCri
 from .models.ShortenRequest import ShortenRequest, ShortenRequestBuilder
 from .models.Indexer import ReindexRequest, ReindexRequestBuilder, LegacyIndexRequest, LegacyIndexRequestBuilder, APIDetails, APIDetailsBuilder, PaginationDetails, PaginationDetailsBuilder
 from .models.Report import MetadataRequest, MetadataRequestBuilder, ReportRequest, ReportRequestBuilder, SearchParam, SearchParamBuilder
+from .models.Otp import Otp, OtpBuilder, UserOtp, UserOtpBuilder
+
 __all__ = [
     'APIClient',
     'Config',
@@ -74,6 +76,8 @@ __all__ = [
     'ShortenRequestService',
     'IndexerService',
     'ReportService',
+    'UserOtpService',
+    'EgovOtpService',
     'RequestConfig',
     'RequestInfo',
     'RequestInfoBuilder',
@@ -170,5 +174,9 @@ __all__ = [
     'ReportRequest',
     'ReportRequestBuilder',
     'SearchParam',
-    'SearchParamBuilder'
+    'SearchParamBuilder',
+    'Otp',
+    'OtpBuilder',
+    'UserOtp',
+    'UserOtpBuilder'
 ] 

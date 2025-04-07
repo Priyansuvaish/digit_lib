@@ -27,6 +27,7 @@ from .Transactions import Transaction, TransactionBuilder, TransactionCriteria,T
 from .ShortenRequest import ShortenRequest, ShortenRequestBuilder
 from .Indexer import ReindexRequest, ReindexRequestBuilder, LegacyIndexRequest, LegacyIndexRequestBuilder, APIDetails, APIDetailsBuilder, PaginationDetails, PaginationDetailsBuilder   
 from .Report import MetadataRequest, MetadataRequestBuilder, ReportRequest, ReportRequestBuilder, SearchParam, SearchParamBuilder
+from .Otp import Otp, OtpBuilder, UserOtp, UserOtpBuilder
 __all__ = ['Role', 
            'RoleBuilder', 
            'AuthorizationRequest', 
@@ -116,5 +117,9 @@ __all__ = ['Role',
            'ReportRequest',
            'ReportRequestBuilder',
            'SearchParam',
-           'SearchParamBuilder'
+           'SearchParamBuilder',
+           'Otp',
+           'OtpBuilder',
+           'UserOtp',
+           'UserOtpBuilder'
            ]
