@@ -29,6 +29,8 @@ from .Indexer import ReindexRequest, ReindexRequestBuilder, LegacyIndexRequest, 
 from .Report import MetadataRequest, MetadataRequestBuilder, ReportRequest, ReportRequestBuilder, SearchParam, SearchParamBuilder
 from .Otp import Otp, OtpBuilder, UserOtp, UserOtpBuilder
 from .localization import Message, MessageBuilder, UpdateMessage, UpdateMessageBuilder, DeleteMessage, DeleteMessagesRequest, DeleteMessagesRequestBuilder, DeleteMessageBuilder, LocaleRequest, LocaleRequestBuilder, CreateMessagesRequest, CreateMessagesRequestBuilder, UpdateMessageRequest, UpdateMessageRequestBuilder
+from .ServiceRequest import AttributeValue,AttributeValueBuilder,AttributeDefinition, AttributeDefinitionBuilder, ServiceDefinition, ServiceDefinitionBuilder, ServiceDefinitionCriteria, ServiceDefinitionCriteriaBuilder, Service, ServiceBuilder, ServiceCriteria, ServiceCriteriaBuilder, OrderEnum,DataTypeEnum,Pagination,PaginationBuilder
+
 __all__ = ['Role', 
            'RoleBuilder', 
            'AuthorizationRequest', 
@@ -136,5 +138,22 @@ __all__ = ['Role',
            'CreateMessagesRequest',
            'CreateMessagesRequestBuilder',
            'UpdateMessageRequest',
-           'UpdateMessageRequestBuilder'
+           'UpdateMessageRequestBuilder',
+           'AttributeValue',
+           'AttributeValueBuilder',
+           'AttributeDefinition',
+           'AttributeDefinitionBuilder',
+           'ServiceDefinition',
+           'ServiceDefinitionBuilder',
+           'ServiceDefinitionCriteria',
+           'ServiceDefinitionCriteriaBuilder',
+           'Service',
+           'ServiceBuilder',
+           'ServiceCriteria',
+           'ServiceCriteriaBuilder',
+           'OrderEnum',
+           'DataTypeEnum',
+           'Pagination',
+           'PaginationBuilder'
+           
            ]
