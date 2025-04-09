@@ -2,19 +2,21 @@ from typing import List, Optional
 from dataclasses import dataclass
 from copy import deepcopy
 from datetime import datetime
+from .AuthorizationRequest import Role
 
-@dataclass
-class Role:
-    code: str
-    name: str
-    tenant_id: str
 
-    def to_dict(self) -> dict:
-        return {
-            "code": self.code,
-            "name": self.name,
-            "tenantId": self.tenant_id
-        }
+# @dataclass
+# class Role:
+#     code: str
+#     name: str
+#     tenant_id: str
+
+#     def to_dict(self) -> dict:
+#         return {
+#             "code": self.code,
+#             "name": self.name,
+#             "tenantId": self.tenant_id
+#         }
 
 @dataclass
 class CitizenUser:

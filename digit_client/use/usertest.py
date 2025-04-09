@@ -1,38 +1,48 @@
-from digit_client import RequestConfig, UserService, CitizenUserBuilder, Role, UserProfileUpdate, UserProfileUpdateBuilder, RequestInfoBuilder
+from digit_client import RequestConfig, UserService, CitizenUserBuilder, RoleBuilder, UserBuilder
 from pprint import pprint
 
 def main():
     try:
         # Initialize with default auth token
         auth_token = "ba5e5f01-dbb5-4c94-95cf-5fa52ffae078"
-        userinfo = {
-            "username": "priyanhugupta753@gmail.com",
-            "password": "Scaler@123",
-            "tenantId": "pg"
-        }
+        roles=[
+            (RoleBuilder()
+                .with_code("CITIZEN")
+                .with_name("Citizen")
+                .with_tenant_id("pg")
+                .build()),
+            (RoleBuilder()
+                .with_code("EMPLOYEE")
+                .with_name("Employee")
+                .with_tenant_id("pg")
+                .build()),
+            (RoleBuilder()
+                .with_code("ADMIN") 
+                .with_name("Administrator")
+                .with_tenant_id("pg")
+                .build())
+        ]
+        userinfo = (UserBuilder()
+            .with_id(1)
+            .with_user_name("priyanhugupta753@gmail.com")
+            .with_tenant_id("pg")
+            .with_type("CITIZEN")
+            .with_roles(roles)
+            .with_mobile_number("9353822214")
+            .with_email("priyanhugupta753@gmail.com")
+            .with_name("Priyanhu Gupta")
+            .with_uuid("1234567890")
+            .build())
+        
         
         # First initialize with basic config
         RequestConfig.initialize(
             api_id="DIGIT-CLIENT",
-            version="1.0.0"
+            version="1.0.0",
+            user_info=userinfo.to_dict(),
+            auth_token=auth_token
         )
 
-        # Get initial request info
-        request_info = RequestConfig.get_request_info(action="GET")
-        print("Initial request info:")
-        print(request_info.to_dict())
-        
-        # Update with auth token
-        RequestConfig.update_auth_token(auth_token)
-        request_info = RequestConfig.get_request_info(action="GET")
-        print("\nRequest info with auth token:")
-        print(request_info.to_dict())
-        
-        # Update with user info
-        RequestConfig.update_user_info(userinfo)
-        request_info = RequestConfig.get_request_info(action="GET")
-        print("\nRequest info with user info:")
-        print(request_info.to_dict())
         
         # Create user service
         user_service = UserService()
@@ -46,9 +56,6 @@ def main():
             .with_mobile_number("9353822214")
             .with_tenant_id("POM")
             .build())  # Will automatically add CITIZEN role
-        
-        print("\nBasic Citizen User:")
-        pprint(basic_citizen.to_dict())
 
         # Example 2: Create a detailed citizen user with all fields
         detailed_citizen = (CitizenUserBuilder()
@@ -80,50 +87,16 @@ def main():
             .with_photo("a8a6cf1e-c84d-4a0c-b2d5-57ec8711ba25")
             .with_otp_reference("14856")
             .with_tenant_id("POM")
-            .with_roles([
-                Role(code="CITIZEN", name="Citizen", tenant_id="POM"),
-                Role(code="EMPLOYEE", name="Employee", tenant_id="POM"),
-                Role(code="ADMIN", name="Administrator", tenant_id="POM")
-            ])
+            .with_roles(roles)
             .build())
 
-        print("\nDetailed Citizen User:")
-        pprint(detailed_citizen.to_dict())
 
         # Create citizen user
         response = user_service.create_user_no_validate(detailed_citizen)
         print("\nCreate Response:", response)
 
-        # Example 3: Update existing user without validation
-        update_user = (UserProfileUpdateBuilder()
-            .with_id(338)
-            .with_uuid("afc7eaf1-a25f-46c9-b16f-3f7de29009ff")
-            .with_user_name("EGOvM134NmNmd")
-            .with_name("gudduPoilce")
-            .with_mobile_number("9353822214")
-            .with_email("xyz123@egovernments.org")
-            .with_locale("string")
-            .with_type("EMPLOYEE")
-            .with_roles([
-                Role(code="EMPLOYEE", name="Employee", tenant_id="pg"),
-                Role(code="GRO", name="Grievance Routing Officer", tenant_id="pg"),
-                Role(code="SYSTEM", name="System user", tenant_id="pg"),
-                Role(code="SUPERUSER", name="Super User", tenant_id="pg"),
-                Role(code="HRMS_ADMIN", name="HRMS ADMIN", tenant_id="pg"),
-                Role(code="DGRO", name="Department Grievance Routing Officer", tenant_id="pg")
-            ])
-            .with_active(True)
-            .with_tenant_id("pg")
-            .with_permanent_city("Kaikoo")
-            # .with_gender("MALE")
-            # .with_photo(None)
-            .build())
-
-        print("\nUpdating User:")
-        pprint(update_user.to_dict())
-
         # Update user
-        update_response = user_service.update_user_no_validate(update_user)
+        update_response = user_service.update_user_no_validate(detailed_citizen)
         print("\nUpdate Response:")
         pprint(update_response)
 

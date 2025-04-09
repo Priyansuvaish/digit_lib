@@ -1,5 +1,6 @@
 # __init__.py for models package
 from .user import User, UserBuilder
+from .auth import AuthenticationRequest, AuthenticationRequestBuilder
 from .AuthorizationRequest import Role, RoleBuilder, AuthorizationRequest, AuthorizationRequestBuilder
 from .ActionRequest import ActionRequest, ActionBuilder, ActionRequestBuilder, Action
 from .citizen_user import CitizenUser, CitizenUserBuilder
@@ -35,6 +36,8 @@ __all__ = ['Role',
            'RoleBuilder', 
            'AuthorizationRequest', 
            'AuthorizationRequestBuilder', 
+           'AuthenticationRequest',
+           'AuthenticationRequestBuilder',
            'ActionRequest', 
            'ActionBuilder', 
            'ActionRequestBuilder', 

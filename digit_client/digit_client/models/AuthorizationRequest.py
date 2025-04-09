@@ -11,13 +11,13 @@ class Role:
     code: Optional[str] = None
     tenant_id: Optional[str] = None
 
-    def __post_init__(self):
-        if self.name and len(self.name) > 32:
-            raise ValueError("name must be at most 32 characters")
-        if self.code and len(self.code) > 50:
-            raise ValueError("code must be at most 50 characters")
-        if self.tenant_id and len(self.tenant_id) > 50:
-            raise ValueError("tenant_id must be at most 50 characters")
+    # def __post_init__(self):
+    #     if self.name and len(self.name) > 32:
+    #         raise ValueError("name must be at most 32 characters")
+    #     if self.code and len(self.code) > 50:
+    #         raise ValueError("code must be at most 50 characters")
+    #     if self.tenant_id and len(self.tenant_id) > 50:
+    #         raise ValueError("tenant_id must be at most 50 characters")
 
     def to_dict(self) -> Dict[str, Any]:
         result = {}

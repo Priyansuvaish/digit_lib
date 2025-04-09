@@ -71,7 +71,7 @@ class UserService:
         endpoint = f"{self.base_url}/_details"
         return self.api_client.post(endpoint, json_data=payload, params=params)
 
-    def update_profile(self, user_profile: User, request_info: Optional[RequestInfo] = None) -> Dict:
+    def update_profile(self, user_profile: CitizenUser, request_info: Optional[RequestInfo] = None) -> Dict:
         """
         Update user profile.
 
@@ -141,7 +141,7 @@ class UserService:
         endpoint = f"{self.base_url}/users/_createnovalidate"
         return self.api_client.post(endpoint, json_data=payload)
 
-    def update_user_no_validate(self, user_profile: User, request_info: Optional[RequestInfo] = None) -> Dict:
+    def update_user_no_validate(self, user_profile: CitizenUser, request_info: Optional[RequestInfo] = None) -> Dict:
         """
         Update a user without validation in the DIGIT platform.
         

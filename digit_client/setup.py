@@ -29,20 +29,29 @@ from setuptools import setup, find_packages
 #             if not run_auth():
 #                 sys.exit(1)
 #         develop.run(self)
-
+with open("README.md", "r") as f:
+    description = f.read()
 setup(
-    name='digit_client',
-    version='0.1',
+    name='Digit-Client',
+    version='1.0.2',
     packages=find_packages(),
     install_requires=[
         'requests>=2.25.1',
         'jsonschema>=4.0.0',
+        'werkzeug>=3.0.1',
+        'python-dotenv>=1.0.0',
     ],
-    description='Python client for DIGIT services with authentication',
+    long_description=description,
+    long_description_content_type='text/markdown',
     author='eGov Foundation',
-    author_email='your.email@example.com',
-    url='https://github.com/yourusername/digit_client',
+    author_email='priyanshu.vaish@egovernments.org',
+    url='https://github.com/Priyansuvaish/digit_lib.git',
     python_requires='>=3.6',
+    entry_points={
+        'console_scripts': [
+            'digit_init=LoginOrRegister.digit_init:digit_init',
+        ],
+    },
     classifiers=[
         'Development Status :: 3 - Alpha',
         'Intended Audience :: Developers',
