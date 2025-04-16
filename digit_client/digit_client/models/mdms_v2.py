@@ -332,6 +332,10 @@ class MdmsCriteriaV2:
             result['filters'] = self.filter_map
         if self.is_active is not None:
             result['isActive'] = self.is_active
+        if self.schema_code_filter_map:
+            result['schemaCodeFilterMap']=self.schema_code_filter_map
+        if self.unique_identifiers_for_ref_verification:
+            result['uniqueIdentifiersForRefVerification']=self.unique_identifiers_for_ref_verification
         if self.offset is not None:
             result['offset'] = self.offset
         if self.limit is not None:

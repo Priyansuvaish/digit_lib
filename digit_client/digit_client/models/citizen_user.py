@@ -252,18 +252,18 @@ class CitizenUserBuilder:
     def build(self) -> CitizenUser:
         """Build and validate the CitizenUser object"""
         # Validate required fields
-        required_fields = {
-            'user_name': self._user_name,
-            'password': self._password,
-            'name': self._name,
-            'gender': self._gender,
-            'mobile_number': self._mobile_number,
-            'tenant_id': self._tenant_id
-        }
+        # required_fields = {
+        #     'user_name': self._user_name,
+        #     'password': self._password,
+        #     'name': self._name,
+        #     'gender': self._gender,
+        #     'mobile_number': self._mobile_number,
+        #     'tenant_id': self._tenant_id
+        # }
 
-        missing_fields = [field for field, value in required_fields.items() if value is None]
-        if missing_fields:
-            raise ValueError(f"Missing required fields: {', '.join(missing_fields)}")
+        # missing_fields = [field for field, value in required_fields.items() if value is None]
+        # if missing_fields:
+        #     raise ValueError(f"Missing required fields: {', '.join(missing_fields)}")
 
         if not self._roles:
             # Add default CITIZEN role if none provided

@@ -9,12 +9,12 @@ class BoundaryService:
         self.base_url = "boundarys/_search"
         
     def location_search_boundary(self, boundary_request: LocationBoundarySearchRequest,request_info: Optional[RequestInfo] = None) -> Dict:
-        endpoint = f"{self.base_url}"
+        endpoint = f"/location/v11/{self.base_url}"
         request_info = request_info or RequestConfig.get_request_info()
         return self.api_client.post(
             endpoint,
             params=boundary_request.to_dict(),
-            request_info=request_info
+            json_data=request_info
         )
         
     def boundary_search(self, boundary_request: BoundarySearchRequest) -> Dict:
