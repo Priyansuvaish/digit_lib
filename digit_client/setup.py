@@ -33,7 +33,7 @@ with open("README.md", "r") as f:
     description = f.read()
 setup(
     name='Digit-Client',
-    version='1.0.2',
+    version='1.0.3',
     packages=find_packages(),
     install_requires=[
         'requests>=2.25.1',

@@ -657,6 +657,23 @@ class ProcessInstanceSearchCriteria:
             result['businessService'] = self.business_service
         if self.module_name:
             result['moduleName'] = self.module_name
+        if self.is_nearing_sla_count:
+            result['isNearingSlaCount']=self.is_nearing_sla_count
+        if self.tenant_specific_status:
+            result['tenantSpecifiStatus']=self.tenant_specific_status
+        if self.multiple_assignees:
+            result['multipleAssignees']=self.multiple_assignees
+        if self.states_to_ignore:
+            result['statesToIgnore']=self.states_to_ignore
+        if self.is_escalated_count:
+            result['isEscalatedCount']=self.is_escalated_count
+        if self.is_assigned_to_me_count:
+            result['isAssignedToMeCount']=self.is_assigned_to_me_count
+        if self.statuses_irrespective_of_tenant:
+            result['statusesIrrespectiveOfTenant']=self.statuses_irrespective_of_tenant
+        if self.slot_percentage_sla_limit:
+            result['slotPercentageSlaLimit']=self.slot_percentage_sla_limit
+        
         return result
 
 class ProcessInstanceSearchCriteriaBuilder:

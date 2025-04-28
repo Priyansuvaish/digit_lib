@@ -7,7 +7,7 @@ authorize_service = AuthorizeService()
 RequestConfig.initialize(
     api_id="asset-services",
     version="1.0.0",
-    auth_token="0e9b955f-5e25-4809-b680-97ef37ccf53f",
+    auth_token="c56b515d-f5bd-4776-9499-2d57ba5a56b0",
     msg_id="authorize_action",
     user_info={
         "id": "1",
@@ -34,6 +34,9 @@ authorization_request = AuthorizationRequestBuilder() \
     .add_role(role) \
     .add_tenant_id("LMN") \
     .build()
+
+print("buih",authorization_request.to_dict())
+print("end")
 
 response = authorize_service.authorize_action(authorization_request)
 print(response) 

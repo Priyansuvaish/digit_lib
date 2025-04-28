@@ -78,6 +78,10 @@ class MdmsCriteria:
             result['ids'] = list(self.ids)
         if self.unique_identifier:
             result['uniqueIdentifier'] = self.unique_identifier
+        if self.schema_code_filter_map:
+            result['schemaCodeFilterMap'] = self.schema_code_filter_map
+        if self.is_active:
+            result['isActive'] = self.is_active
             
         return result
 

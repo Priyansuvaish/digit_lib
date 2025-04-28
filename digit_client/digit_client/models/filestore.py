@@ -27,6 +27,7 @@ class FileUploadRequest:
             'module': self.module,
             
         }
+        result['files'] = [file.filename for file in self.files]
         if self.tag:
             result['tag'] = self.tag
         if self.request_info:
