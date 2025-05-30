@@ -8,7 +8,7 @@ class MDMSV2Service:
     def __init__(self, api_client: Optional[APIClient] = None):
         self.api_client = api_client or APIClient()
         self.base_url = "mdms-v2/schema/v1"
-        self.mdms_base_url = "mdms-v2/mdms/v1"
+        self.mdms_base_url = "mdms-v2/v2"
 
     def schema_create(self, 
                schema_definition: SchemaDefinition,
